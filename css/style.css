@@ -1,0 +1,335 @@
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid #4819f1;
+  box-shadow: 0px 0px 10px #a249c2;
+}
+.form-control.login {
+  outline: none !important;
+  border: none;
+  border-bottom: 0.5px solid #a249c2;
+  border-radius: 0;
+}
+.form-control.login:focus {
+  box-shadow: none;
+}
+#loader-page {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, #a249c2, #4819f1);
+  position: fixed;
+  z-index: 999999;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #fff;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid #ffc107;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body {
+  /* font-family: "Inter", sans-serif; */
+  scroll-behavior: smooth;
+}
+.bg-img-index {
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.76), transparent), url("../pc\ \(2\).jpg");
+  min-height: 100vh;
+  width: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30vh 0 0 0;
+}
+.sebaris {
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+.bg-rgb {
+  background: linear-gradient(to right, #a249c2, #4819f1);
+}
+.text-rgb {
+  background: linear-gradient(to right, #a249c2, #4819f1, #4819f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.btn-rgb {
+  background: linear-gradient(to right, #a249c2, #4819f1);
+  transition: 0.5s ease-in-out;
+}
+.btn-rgb:hover {
+  background: linear-gradient(to right, #a249c2e7, #4819f1e3);
+}
+.btn-rgb-reverse {
+  background: linear-gradient(to left, #a249c2, #4819f1);
+  border: 1px solid #a249c2;
+  transition: 0.5s ease-in-out;
+}
+.btn-rgb-reverse:hover {
+  background: linear-gradient(to left, #a249c2e7, #4819f1e3);
+}
+.bg-img-index .content {
+  background-color: #fff;
+  width: fit-content;
+  padding: 3vh;
+  border-radius: 0px 20px 20px 20px;
+  box-shadow: inset 0px 0px 10px #a249c288;
+}
+.bg-img-index .page-title,
+.car-info .page-title {
+  font-size: 4em;
+}
+.fw-bold {
+  font-weight: bold;
+}
+.fw-normal {
+  font-weight: 100;
+}
+#tentang-kami {
+  width: 100%;
+  min-height: 85vh;
+}
+#tentang-kami .desc {
+  font-size: 1.1em;
+  margin-bottom: 5vh;
+}
+#tentang-kami .img {
+  width: 80%;
+  margin: auto;
+}
+#tentang-kami img {
+  width: 100%;
+  margin: auto;
+}
+.car-info {
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.76), transparent), url("../pc\ \(3\).jpg");
+  min-height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30vh 0 0 0;
+}
+
+.bg-img-index h1 {
+  font-size: 3em;
+}
+
+.card.card-car {
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 10;
+  border: 1px solid #fff;
+}
+
+.card-car:hover {
+  transform: translateY(-5%);
+}
+
+.card-car .card-body {
+  overflow: hidden;
+  z-index: 99;
+  background-color: #fff;
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 5px;
+}
+.card-car:hover .card-body {
+  box-shadow: 0px 0px 10px #a249c25d;
+}
+
+.card-car .button-detail-info {
+  z-index: 1;
+  transition: 0.5s;
+  transform: translateY(-100%);
+  border: 0px 0px 10px 10px;
+}
+
+.card-car:hover .button-detail-info {
+  transform: translateY(10%);
+}
+
+.btn-blue {
+  background-color: #4819f1;
+}
+
+.card-car img {
+  width: 100%;
+}
+
+.card-car .car-name {
+  font-size: 1.3em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.card-car .car-capacity,
+.card-car .car-cc {
+  font-size: 1em;
+}
+.card-car .car-price {
+  font-size: 1.2em;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.card-car .btn-detail {
+  border-radius: 10px 0px 10px 0px;
+}
+section.perhitungan .carousel-item {
+  background: rgb(241, 241, 241);
+  border-radius: 10px;
+}
+section.perhitungan img {
+  width: 100%;
+  max-height: 35vh;
+  object-fit: cover;
+  border-radius: 10px;
+}
+section.beginner .beginner-title,
+section.advenced .advenced-title {
+  font-size: 2em;
+}
+section.beginner,
+section.advenced {
+  display: none;
+}
+section.beginner.active,
+section.advenced.active {
+  display: block;
+}
+.sub-navbar {
+  width: fit-content;
+}
+.sub-navbar a {
+  padding: 1vh 3vh;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sub-navbar a.active {
+  border-bottom: 2px solid #4819f1;
+}
+
+section.login-admin {
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.76), transparent), url("../pc\ \(4\).jpg");
+  height: 100vh;
+  width: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+section.login-admin .box-login {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 0px 15px rgb(226, 226, 226);
+}
+
+.modal-kelengkapan .modal-body .btn {
+  border-radius: 0px;
+}
+
+.form-kondisi {
+  border: 1px solid rgb(228, 228, 228);
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#form-mobo,
+#form-pcr,
+#form-psu,
+#form-RAM,
+#form-SSD,
+#form-FanP,
+#form-HDD,
+#form-VGA,
+#form-KabelP,
+#form-case,
+#form-kabelS,
+#form-fanC,
+#form-keyM,
+#form-moni,
+#form-kabelVGA {
+  transition: 0.5s;
+  transform: translateY(20%);
+}
+
+#form-mobo.hidden,
+#form-pcr.hidden,
+#form-psu.hidden,
+#form-RAM.hidden,
+#form-SSD.hidden,
+#form-FanP.hidden,
+#form-HDD.hidden,
+#form-VGA.hidden,
+#form-KabelP.hidden,
+#form-case.hidden,
+#form-kabelS.hidden,
+#form-fanC.hidden,
+#form-keyM.hidden,
+#form-moni.hidden,
+#form-kabelVGA.hidden {
+  transform: translateY(-20%);
+  opacity: 0;
+  display: none;
+}
+.input-hpp input[type="number"].form-control,
+.input-usia input[type="number"].form-control {
+  outline: none !important;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #a249c2;
+}
+.input-hpp input[type="number"].form-control:focus,
+.input-usia input[type="number"].form-control:focus {
+  box-shadow: none;
+}
+.input-usia small {
+  font-size: 0.8em;
+}
+#input-hpp, #input-usia {
+  display: none;
+}
+.result {
+  border: 1px solid rgb(228, 228, 228);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+#result-calculate {
+  opacity: 1;
+  transition: 0.5s;
+  transform: translateY(20%);
+}
+#result-calculate.hidden {
+  transform: translateY(-20%);
+  display: none;
+  opacity: 0;
+}

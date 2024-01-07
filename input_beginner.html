@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+      <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/dropify.min.css">
+    <title>PCPlanner</title>
+  </head>
+  <body onload="hideLoader()">
+    <div id="loader-page">
+      <div class="position-absolute top-50 start-50 translate-middle">
+        <span class="loader"></span>
+      </div>
+    </div>
+    <!-- Navbar new -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-rgb shadow-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand h2 text-warning fw-bold" href="index.php"
+          ><span class="h4 fw-bold"><i class="fa-solid fa-backward-step"></i></span
+        ></a>
+        <div class="row justify-content-end">
+          <div class="col-12">
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" style="color: transparent">Advenced</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="my-5"><br></div>
+
+    <section class="perhitungan">
+      <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="pc (1).jpg" class="d-block" alt="Image" />
+            </div>
+            <div class="carousel-item">
+              <img src="pc (2).jpg" class="d-block" alt="Image" />
+            </div>
+            <div class="carousel-item">
+              <img src="pc (3).jpg" class="d-block" alt="Image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="beginner active mt-5" id="beginner-page">
+        <div class="container">
+          <div class="beginner-title fw-bold text-rgb my-3">Let's <span class="text-warning">calculate</span></div>
+          <hr>
+            <div class="text-end mb-3">
+                <button type="button" class="btn btn-rgb oy-2 px-5 text-light fw-semibold" data-bs-toggle="modal" data-bs-target="#kelengkapan" id="btn-kelengkapan">
+                  Select
+                </button>
+                <button type="button" class="btn btn-warning text-light" data-bs-toggle="modal" data-bs-target="#faq"><i class="fa-regular fa-circle-question"></i></button>
+                <button onclick="refresh()" class="btn btn-danger text-light"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+            </div>
+            <div class="row justify-content-between">
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-mobo" >
+                <div class="form-kondisi">
+                    <div class="row justify-content-between">
+                      <div class="col-auto">
+                        <label for="moboInput" class="form-label text-rgb fw-semibold">Motherboard</label>
+                      </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_mobo" id="moboInput1" value="0" checked>
+                      <label class="form-check-label" for="moboInput1">Terrible</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_mobo" id="moboInput2" value="25.5">
+                      <label class="form-check-label" for="moboInput2">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_mobo" id="moboInput3" value="50">
+                      <label class="form-check-label" for="moboInput3">Normal</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_mobo" id="moboInput4" value="70">
+                      <label class="form-check-label" for="moboInput4">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_mobo" id="moboInput5" value="90">
+                      <label class="form-check-label" for="moboInput5">Very Good</label>
+                    </div>
+                    <!-- hpp start -->
+                    <div class="form-floating input-hpp mt-2">
+                      <input type="number" class="form-control" id="hpp-mobo" placeholder="Masukan HPP" value="0">
+                      <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                    </div>
+                    <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-pcr">
+                <div class="form-kondisi">
+                    <div class="row justify-content-between">
+                      <div class="col-auto">
+                        <label for="pcrInput" class="form-label text-rgb fw-semibold">Processor</label>
+                      </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_proc" id="pcrInput1" value="0" checked>
+                      <label class="form-check-label" for="pcrInput1">Terrible</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_proc" id="pcrInput2" value="25">
+                      <label class="form-check-label" for="pcrInput2">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_proc" id="pcrInput3" value="50">
+                      <label class="form-check-label" for="pcrInput3">Normal</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_proc" id="pcrInput4" value="70">
+                      <label class="form-check-label" for="pcrInput4">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_proc" id="pcrInput5" value="90">
+                      <label class="form-check-label" for="pcrInput5">Very Good</label>
+                    </div>                    <!-- hpp start -->
+                    <div class="form-floating input-hpp mt-2">
+                      <input type="number" class="form-control" id="hpp-pcr" placeholder="Masukan HPP" value="0">
+                      <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                    </div>
+                    <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-psu" >
+                <div class="form-kondisi">
+                    <div class="row justify-content-between">
+                      <div class="col-auto">
+                        <label for="psuInput" class="form-label text-rgb fw-semibold">Power Supply </label>
+                      </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_psu" id="psuInput1" value="0" checked>
+                      <label class="form-check-label" for="psuInput1">Terrible</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_psu" id="psuInput2" value="25">
+                      <label class="form-check-label" for="psuInput2">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_psu" id="psuInput3" value="50">
+                      <label class="form-check-label" for="psuInput3">Normal</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_psu" id="psuInput4" value="70">
+                      <label class="form-check-label" for="psuInput4">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_psu" id="psuInput5" value="90">
+                      <label class="form-check-label" for="psuInput5">Very Good</label>
+                    </div>
+                    <!-- hpp start -->
+                    <div class="form-floating input-hpp mt-2">
+                      <input type="number" class="form-control" id="hpp-psu" placeholder="Masukan HPP" value="0">
+                      <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                    </div>
+                    <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-RAM" >
+                <div class="form-kondisi">
+                    <div class="row justify-content-between">
+                      <div class="col-auto">
+                        <label for="RAMInput" class="form-label text-rgb fw-semibold">RAM </label>
+                      </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_ram" id="RAMInput1" value="0" checked>
+                      <label class="form-check-label" for="RAMInput1">Terrible</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_ram" id="RAMInput2" value="25">
+                      <label class="form-check-label" for="RAMInput2">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_ram" id="RAMInput3" value="50">
+                      <label class="form-check-label" for="RAMInput3">Normal</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_ram" id="RAMInput4" value="70">
+                      <label class="form-check-label" for="RAMInput4">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_ram" id="RAMInput5" value="90">
+                      <label class="form-check-label" for="RAMInput5">Very Good</label>
+                    </div>                    <!-- hpp start -->
+                    <div class="form-floating input-hpp mt-2">
+                      <input type="number" class="form-control" id="hpp-RAM" placeholder="Masukan HPP" value="0">
+                      <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                    </div>
+                    <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-SSD" >
+                <div class="form-kondisi">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <label for="SSDInput" class="form-label text-rgb fw-semibold">SSD </label>
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_ssd" id="SSDInput1" value="0" checked>
+                    <label class="form-check-label" for="SSDInput1">Terrible</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_ssd" id="SSDInput2" value="25">
+                    <label class="form-check-label" for="SSDInput2">Bad</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_ssd" id="SSDInput3" value="50">
+                    <label class="form-check-label" for="SSDInput3">Normal</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_ssd" id="SSDInput4" value="70">
+                    <label class="form-check-label" for="SSDInput4">Good</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_ssd" id="SSDInput5" value="90">
+                    <label class="form-check-label" for="SSDInput5">Very Good</label>
+                  </div>                  <!-- hpp start -->
+                  <div class="form-floating input-hpp mt-2">
+                    <input type="number" class="form-control" id="hpp-SSD" placeholder="Masukan HPP" value="0">
+                    <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                  </div>
+                  <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-FanP" >
+                <div class="form-kondisi">
+                    <div class="row justify-content-between">
+                      <div class="col-auto">
+                        <label for="FanPInput" class="form-label text-rgb fw-semibold">Fan Processor </label>
+                      </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_fanp" id="FanPInput1" value="0" checked>
+                      <label class="form-check-label" for="FanPInput1">Terrible</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_fanp" id="FanPInput2" value="25">
+                      <label class="form-check-label" for="FanPInput2">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_fanp" id="FanPInput3" value="50">
+                      <label class="form-check-label" for="FanPInput3">Normal</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_fanp" id="FanPInput4" value="70">
+                      <label class="form-check-label" for="FanPInput4">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_fanp" id="FanPInput5" value="90">
+                      <label class="form-check-label" for="FanPInput5">Very Good</label>
+                    </div>                    <!-- hpp start -->
+                    <div class="form-floating input-hpp mt-2">
+                      <input type="number" class="form-control" id="hpp-FanP" placeholder="Masukan HPP" value="0">
+                      <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                    </div>
+                    <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-HDD" >
+                <div class="form-kondisi">
+                    <div class="row justify-content-between">
+                      <div class="col-auto">
+                        <label for="HDDInput" class="form-label text-rgb fw-semibold">HDD </label>
+                      </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_hdd" id="HDDInput1" value="0" checked>
+                      <label class="form-check-label" for="HDDInput1">Terrible</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_hdd" id="HDDInput2" value="25">
+                      <label class="form-check-label" for="HDDInput2">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_hdd" id="HDDInput3" value="50">
+                      <label class="form-check-label" for="HDDInput3">Normal</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_hdd" id="HDDInput4" value="70">
+                      <label class="form-check-label" for="HDDInput4">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="kon_hdd" id="HDDInput5" value="90">
+                      <label class="form-check-label" for="HDDInput5">Very Good</label>
+                    </div>                    <!-- hpp start -->
+                    <div class="form-floating input-hpp mt-2">
+                      <input type="number" class="form-control" id="hpp-HDD" placeholder="Masukan HPP" value="0">
+                      <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                    </div>
+                    <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-VGA" >
+                <div class="form-kondisi">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <label for="VGAInput" class="form-label text-rgb fw-semibold">VGA </label>
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_vga" id="VGAInput1" value="0" checked>
+                    <label class="form-check-label" for="VGAInput1">Terrible</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_vga" id="VGAInput2" value="25">
+                    <label class="form-check-label" for="VGAInput2">Bad</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_vga" id="VGAInput3" value="50">
+                    <label class="form-check-label" for="VGAInput3">Normal</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_vga" id="VGAInput4" value="70">
+                    <label class="form-check-label" for="VGAInput4">Good</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_vga" id="VGAInput5" value="90">
+                    <label class="form-check-label" for="VGAInput5">Very Good</label>
+                  </div>                  <!-- hpp start -->
+                  <div class="form-floating input-hpp mt-2">
+                    <input type="number" class="form-control" id="hpp-VGA" placeholder="Masukan HPP" value="0">
+                    <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                  </div>
+                  <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-KabelP">
+                <div class="form-kondisi">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <label for="KabelPInput" class="form-label text-rgb fw-semibold">Power Cable </label>
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_power" id="KabelPInput1" value="0" checked>
+                    <label class="form-check-label" for="KabelPInput1">Terrible</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_power" id="KabelPInput2" value="25">
+                    <label class="form-check-label" for="KabelPInput2">Bad</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_power" id="KabelPInput3" value="50">
+                    <label class="form-check-label" for="KabelPInput3">Normal</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_power" id="KabelPInput4" value="70">
+                    <label class="form-check-label" for="KabelPInput4">Good</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_power" id="KabelPInput5" value="90">
+                    <label class="form-check-label" for="KabelPInput5">Very Good</label>
+                  </div>                  <!-- hpp start -->
+                  <div class="form-floating input-hpp mt-2">
+                    <input type="number" class="form-control" id="hpp-KabelP" placeholder="Masukan HPP" value="0">
+                    <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                  </div>
+                  <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-case" >
+                <div class="form-kondisi">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <label for="caseInput" class="form-label text-rgb fw-semibold">Casing </label>
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_case" id="caseInput1" value="0" checked>
+                    <label class="form-check-label" for="caseInput1">Terrible</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_case" id="caseInput2" value="25">
+                    <label class="form-check-label" for="caseInput2">Bad</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_case" id="caseInput3" value="50">
+                    <label class="form-check-label" for="caseInput3">Normal</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_case" id="caseInput4" value="70">
+                    <label class="form-check-label" for="caseInput4">Good</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_case" id="caseInput5" value="90">
+                    <label class="form-check-label" for="caseInput5">Very Good</label>
+                  </div>                  <!-- hpp start -->
+                  <div class="form-floating input-hpp mt-2">
+                    <input type="number" class="form-control" id="hpp-case" placeholder="Masukan HPP" value="0">
+                    <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                  </div>
+                  <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-kabelS" >
+                <div class="form-kondisi">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <label for="kabelSInput" class="form-label text-rgb fw-semibold">SATA Cable </label>
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_sata" id="kabelSInput1" value="0" checked>
+                    <label class="form-check-label" for="kabelSInput1">Terrible</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_sata" id="kabelSInput2" value="25">
+                    <label class="form-check-label" for="kabelSInput2">Bad</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_sata" id="kabelSInput3" value="50">
+                    <label class="form-check-label" for="kabelSInput3">Normal</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_sata" id="kabelSInput4" value="70">
+                    <label class="form-check-label" for="kabelSInput4">Good</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_sata" id="kabelSInput5" value="90">
+                    <label class="form-check-label" for="kabelSInput5">Very Good</label>
+                  </div>                  <!-- hpp start -->
+                  <div class="form-floating input-hpp mt-2">
+                    <input type="number" class="form-control" id="hpp-kabelS" placeholder="Masukan HPP" value="0">
+                    <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                  </div>
+                  <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-fanC" >
+                <div class="form-kondisi">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <label for="fanCInput" class="form-label text-rgb fw-semibold">Fan Casing</label>
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_fanc" id="fanCInput1" value="0" checked>
+                    <label class="form-check-label" for="fanCInput1">Terrible</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_fanc" id="fanCInput2" value="25">
+                    <label class="form-check-label" for="fanCInput2">Bad</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_fanc" id="fanCInput3" value="50">
+                    <label class="form-check-label" for="fanCInput3">Normal</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_fanc" id="fanCInput4" value="70">
+                    <label class="form-check-label" for="fanCInput4">Good</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_fanc" id="fanCInput5" value="90">
+                    <label class="form-check-label" for="fanCInput5">Very Good</label>
+                  </div>                  <!-- hpp start -->
+                  <div class="form-floating input-hpp mt-2">
+                    <input type="number" class="form-control" id="hpp-fanC" placeholder="Masukan HPP" value="0">
+                    <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                  </div>
+                  <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-keyM">
+                <div class="form-kondisi">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <label for="keyMInput" class="form-label text-rgb fw-semibold">Keyboard & Mouse </label>
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_keym" id="keyMInput1" value="0" checked>
+                    <label class="form-check-label" for="keyMInput1">Terrible</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_keym" id="keyMInput2" value="25">
+                    <label class="form-check-label" for="keyMInput2">Bad</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_keym" id="keyMInput3" value="50">
+                    <label class="form-check-label" for="keyMInput3">Normal</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_keym" id="keyMInput4" value="70">
+                    <label class="form-check-label" for="keyMInput4">Good</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_keym" id="keyMInput5" value="90">
+                    <label class="form-check-label" for="keyMInput5">Very Good</label>
+                  </div>                  <!-- hpp start -->
+                  <div class="form-floating input-hpp mt-2">
+                    <input type="number" class="form-control" id="hpp-keyM" placeholder="Masukan HPP" value="0">
+                    <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                  </div>
+                  <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-moni">
+                <div class="form-kondisi">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <label for="moniInput" class="form-label text-rgb fw-semibold">Monitor </label>
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_moni" id="moniInput1" value="0" checked>
+                    <label class="form-check-label" for="moniInput1">Terrible</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_moni" id="moniInput2" value="25">
+                    <label class="form-check-label" for="moniInput2">Bad</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_moni" id="moniInput3" value="50">
+                    <label class="form-check-label" for="moniInput3">Normal</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_moni" id="moniInput4" value="70">
+                    <label class="form-check-label" for="moniInput4">Good</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_moni" id="moniInput5" value="90">
+                    <label class="form-check-label" for="moniInput5">Very Good</label>
+                  </div>                  <!-- hpp start -->
+                  <div class="form-floating input-hpp mt-2">
+                    <input type="number" class="form-control" id="hpp-moni" placeholder="Masukan HPP" value="0">
+                    <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                  </div>
+                  <!-- hpp end -->
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-6 hidden" id="form-kabelVGA">
+                <div class="form-kondisi">
+                  <div class="row justify-content-between">
+                    <div class="col-auto">
+                      <label for="kabelVGAInput" class="form-label text-rgb fw-semibold">VGA Cable </label>
+                    </div>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_kvga" id="kabelVGAInput1" value="0" checked>
+                    <label class="form-check-label" for="kabelVGAInput1">Terrible</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_kvga" id="kabelVGAInput2" value="25">
+                    <label class="form-check-label" for="kabelVGAInput2">Bad</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_kvga" id="kabelVGAInput3" value="50">
+                    <label class="form-check-label" for="kabelVGAInput3">Normal</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_kvga" id="kabelVGAInput4" value="70">
+                    <label class="form-check-label" for="kabelVGAInput4">Good</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="kon_kvga" id="kabelVGAInput5" value="90">
+                    <label class="form-check-label" for="kabelVGAInput5">Very Good</label>
+                  </div>                  <!-- hpp start -->
+                  <div class="form-floating input-hpp mt-2">
+                    <input type="number" class="form-control" id="hpp-kabelVGA" placeholder="Masukan HPP" value="0">
+                    <label for="input-hpp-floating" class="text-rgb fw-semibold">COGS</label>
+                  </div>
+                  <!-- hpp end -->
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-start mt-5">
+              <div class="col-12 input-usia" id="input-usia">
+                <div class="form-floating mb-0 pb-0">
+                  <input type="number" class="form-control" id="input-usia-floating" placeholder="Password">
+                  <label for="input-usia-floating" class="text-rgb fw-semibold mb-0 pb-0">PC age</label>
+                </div>
+                <small class="mt-0 pt-0 text-danger d-none" id="msg-60"><i class="fa-solid fa-circle-exclamation me-2"></i> This system does't support PCs more than 60 months old</small>
+                <small class="mt-0 pt-0 text-danger d-none" id="msg-wrong"><i class="fa-solid fa-circle-exclamation me-2"></i> Please fill in correctly</small>
+              </div>
+              <div class="row justify-content-end mx-0 mb-5">
+                  <div class="col-md-8 m-0 p-0 hidden" id="result-calculate">
+                      <div class="card p-0 w-100">
+                        <div class="card-header bg-rgb text-light fs-5 fw-bold">Result</div>
+                        <div class="card-body py-2 px-3">
+                          <div class="row justify-content-start">
+                            <!--  -->
+                            <div class="col-6">
+                              <div class="condition text-secondary fw-normal sebaris">Condition</div>
+                            </div>
+                            <div class="col-1 text-secondary fw-normal">
+                              :
+                            </div>
+                            <div class="col-5 text-secondary">
+                              <div id="result-kondisi" class="fw-normal"></div>
+                            </div>
+                            <!--  -->
+                            <div class="my-1"></div>
+                            <!--  -->
+                            <div class="col-6">
+                              <div class="condition text-secondary fw-normal sebaris">COGS (Cost of Good Sold)</div>
+                            </div>
+                            <div class="col-1 text-secondary fw-normal">
+                              :
+                            </div>
+                            <div class="col-5 text-secondary">
+                              <div id="result-hpp" class="fw-normal"></div>
+                            </div>
+                            <!--  -->
+                            <div class="my-1"></div>
+                            <!--  -->
+                            <div class="col-6">
+                              <div class="condition text-secondary fw-normal">Age</div>
+                            </div>
+                            <div class="col-1 text-secondary fw-normal">
+                              :
+                            </div>
+                            <div class="col-5 text-secondary">
+                              <div id="result-usia" class="fw-normal"></div>
+                            </div>
+                            <!--  -->
+                            <div class="my-0">
+                              <hr class="mb-1 mt-2">
+                            </div>
+                            <!--  -->
+                            <div class="col-6 mt-0">
+                              <div class="condition text-success fw-bold fs-5 sebaris">Sale price</div>
+                            </div>
+                            <div class="col-1 text-success fw-bold fs-5">
+                              :
+                            </div>
+                            <div class="col-5 text-success">
+                              <div id="result-harga" class="fw-bold fs-5 sebaris" ></div>
+                            </div>
+                            <!--  -->
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="text-end mt-3">
+                <button type="submit" class="btn btn-rgb text-light py-2 px-5 fw-semibold" id="btn-hitung" disabled onclick="hitungHargaJual()">Calculate</button>
+                <button type="button" class="btn btn-warning text-light py-2 px-5 fw-semibold" id="btn-simpan" data-bs-toggle="modal" data-bs-target="#simpan" disabled>Save <i class="fa-regular fa-floppy-disk"></i></button>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="my-5"></div>
+
+    <!-- kelengkapan Modals -->
+    <div class="modal fade modal-kelengkapan" id="kelengkapan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-rgb text-light">
+            <h1 class="modal-title fs-5 fw-bold text-warning" id="staticBackdropLabel"><i class="fa-solid fa-computer"></i><span class="text-light"> Specification </span></h1>
+          </div>
+          <div class="modal-body">
+              <div class="row justify-content-center">
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnMobo" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 sebaris" for="btnMobo"> Motherboard</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnPcr" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 sebaris" for="btnPcr"> Proccessor</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnPSU" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnPSU"> Power Supply</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnRAM" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnRAM"> RAM</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnSSD" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnSSD"> SSD</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnFanP" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnFanP"> Fan Proccessor</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnHDD" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnHDD"> HDD</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnVGA" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnVGA"> VGA</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnKabelP" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnKabelP"> Power Cable</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnCase" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnCase"> Case</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnKabelS" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnKabelS"> SATA Cable</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnFanC" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnFanC"> Fan Casing</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnKeyMo" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnKeyMo"> Key & Mouse</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnMoni" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnMoni"> Monitor</label>
+                </div>
+                <!--  -->
+                <!--  -->
+                <div class="col-4">
+                  <input type="checkbox" class="btn-check" id="btnKabelVGA" autocomplete="off">
+                  <label class="btn btn-outline-warning w-100 item-kelengkapan sebaris" for="btnKabelVGA"> VGA Cable</label>
+                </div>
+                <!--  -->
+              </div>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-rgb text-light fw-semibold py-2 px-5" data-bs-dismiss="modal" aria-label="Close" onclick="showForm()">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of kelengkapan modals -->
+
+    <!-- faq modals -->
+    <div class="modal fade" id="faq" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-rgb">
+            <h1 class="modal-title fs-5 text-warning fw-bold id="exampleModalLabel><i class="fa-regular fa-circle-question"></i> How to <span class="text-light">use</span></h1>
+          </div>
+          <div class="modal-body p-0">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Specification
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Select your parts and calculate it.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    COGS (Cost of Good Sold)
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">What is the cost of each part?</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Age
+                  </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Age must not exceed 60 months.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-rgb text-light fw-semibold py-2 px-5" data-bs-dismiss="modal" aria-label="Close">Got it</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of faq modlas -->
+
+    <!-- simpan modal -->
+    <div class="modal fade" id="simpan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-rgb">
+            <h1 class="modal-title fs-5 fw-bold text-warning" id="exampleModalLabel"><i class="fa-regular fa-floppy-disk"></i> Save <span class="text-light">Calculation</span></h1>
+          </div>
+          <div class="modal-body">
+            <form action="history_perhitungan.php" method="post">
+              <input type="hidden" name="mobo" id="simpan-mobo" value="0" required>
+              <input type="hidden" name="pcr" id="simpan-pcr" value="0" required>
+              <input type="hidden" name="psu" id="simpan-psu" value="0" required>
+              <input type="hidden" name="ram" id="simpan-ram" value="0" required>
+              <input type="hidden" name="ssd" id="simpan-ssd" value="0" required>
+              <input type="hidden" name="fan" id="simpan-fan" value="0" required>
+              <input type="hidden" name="hdd" id="simpan-hdd" value="0" required>
+              <input type="hidden" name="vga" id="simpan-vga" value="0" required>
+              <input type="hidden" name="kabelP" id="simpan-kabelP" value="0" required>
+              <input type="hidden" name="case" id="simpan-case" value="0" required>
+              <input type="hidden" name="kabelS" id="simpan-kabelS" value="0" required>
+              <input type="hidden" name="fanC" id="simpan-fanC" value="0" required>
+              <input type="hidden" name="keyMo" id="simpan-keyMo" value="0" required>
+              <input type="hidden" name="moni" id="simpan-moni" value="0" required>
+              <input type="hidden" name="kvga" id="simpan-kabVga" value="0" required>
+              <input type="hidden" name="foto" placeholder="PC Image" class="form-control">
+              <input type="hidden" name="kondisi" placeholder="PC Condition" id="simpan-kondisi" class="form-control" required>
+              <input type="hidden" name="hpp" placeholder="COGS" id="simpan-hpp" class="form-control" required>
+              <input type="hidden" name="usia" placeholder="Age" id="simpan-usia" class="form-control" required>
+              <input type="hidden" name="harga" placeholder="Sale Price" id="simpan-harga" class="form-control" required>
+              <input type="text" name="nama" placeholder="Name your PC" class="form-control mt-3" required>
+              <textarea name="deskripsi" class="form-control mt-3" cols="20" rows="10" placeholder="Fill Description" required></textarea>
+          </div>  
+          <div class="modal-footer">
+            <button type="submit" name="submit" class="btn btn-rgb text-light fw-semibold py-2 px-5">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of simpan modal -->
+
+    <script src="https://kit.fontawesome.com/910e994c98.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/dropify.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.dropify').dropify({
+            messages: {
+                default: 'Click or Drop to upload image (optional)',
+                replace: 'Click or Drop to upload image (optional)',
+                remove:  'Delete',
+                error:   'Error',
+            }
+        });
+      })
+    </script>
+    <script>
+      function refresh() {
+        location.reload();
+      }
+    </script>
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
